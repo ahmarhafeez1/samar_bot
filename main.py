@@ -1,6 +1,12 @@
 from pydantic import BaseModel
 from openai import OpenAI
-client = ""
+
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+api_key = os.getenv('OPENAI_API_KEY')
+client = OpenAI(api_key=api_key)
 
 
 class Option(BaseModel):
